@@ -133,7 +133,7 @@ Nexus Compute Fabric
 
 ---
 
-# 2. Why Nexus is not simply another AI assistant
+# 2. Why Nexus is not simply another smart glasses or AI assistant
 
 A conventional assistant is approximately:
 
@@ -192,7 +192,7 @@ with experience:
 \tau_t=(s_t,a_t,r_t,s_{t+1}).
 \]
 
-The long-term research question is whether a policy can become increasingly useful for a particular user without sacrificing agency, safety, privacy, or predictability.
+The question is whether a policy can become increasingly useful for a particular user without sacrificing agency, safety, privacy, or predictability where the stack definitely helps but we need to make it secure and end customer skepticism.
 
 ---
 
