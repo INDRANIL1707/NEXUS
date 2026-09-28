@@ -75,13 +75,7 @@ Nexus OS is **not currently a conventional operating-system kernel** and does no
 It is a research implementation of a new semantic operating layer that can eventually sit above, beside, and later partially below existing operating systems.
 
 The central hypothesis is:
-
-\[
-\boxed{
-\text{Personal computing should be organized around human goals and intent, not around applications and input devices.}
-}
-\]
-
+Personal computing should be organized around human goals and intent, not around applications and input devices.
 The system should eventually let a person interact through whatever combination of:
 
 - voice,
@@ -167,64 +161,49 @@ learn
 
 Mathematically:
 
-\[
+$\[
 O_t \rightarrow W_t \rightarrow C_t \rightarrow I_t
 \rightarrow A_t \rightarrow O_{t+1}
-\]
+\]$
 
 where:
 
-- \(O_t\) = observations;
-- \(W_t\) = world state;
-- \(C_t\) = contextual state;
-- \(I_t\) = inferred user intent;
-- \(A_t\) = selected action.
+- $\(O_t\)$ = observations;
+- $\(W_t\)$ = world state;
+- $\(C_t\)$ = contextual state;
+- $\(I_t\)$ = inferred user intent;
+- $\(A_t\)$ = selected action.
 
 A personalized policy is then represented conceptually as:
 
-\[
+$\[
 \pi_\theta(a_t\mid s_t,I_t)
-\]
+\]$
 
 with experience:
 
-\[
+$\[
 \tau_t=(s_t,a_t,r_t,s_{t+1}).
-\]
+\]$
 
 The question is whether a policy can become increasingly useful for a particular user without sacrificing agency, safety, privacy, or predictability where the stack definitely helps but we need to make it secure and end customer skepticism.
 
 ---
 
-# 3. The CUDA-like architectural thesis
 
-Nexus takes inspiration from the **architecture of CUDA as a platform**, not from GPUs as a product category.
-
-NVIDIA describes CUDA as a platform and software layer connecting applications to accelerated hardware, supported by a toolkit containing compilers, runtime libraries, accelerated libraries, and developer/debugging/profiling tools. 
-
-The strategic lesson is:
-
-\[
-\boxed{
-\text{Hardware becomes strategically powerful when an abstraction ecosystem forms above it.}
-}
-\]
 
 Nexus therefore aims for:
-
-| CUDA-style concept | Nexus analogue |
 |---|---|
-| GPU programming model | Human-intent programming model |
-| CUDA runtime | Nexus runtime |
-| PTX / intermediate representation | Intent IR / Action IR |
-| CUDA libraries | Capability / perception / context libraries |
-| Nsight profiling | Nexus interaction/latency profiler |
-| CUDA-aware applications | Intent-native applications |
-| GPU acceleration | Human-compute acceleration |
-| GPU hardware | Future Nexus hardware |
+ Human-intent programming model |
+ Nexus runtime |
+| Intent IR / Action IR |
+| Capability / perception / context libraries |
+| Nexus interaction/latency profiler |
+| Intent-native applications |
+| Human-compute acceleration |
+| Future Nexus hardware |
 
 The goal is not to make the interface proprietary merely for the sake of lock-in.
-
 The goal is to create an abstraction that developers **want** to target because it removes complexity and gives them capabilities unavailable through lower-level interfaces.
 
 ---
@@ -248,32 +227,29 @@ Compute
 
 Represents the relevant physical and digital entities around the user.
 
-\[
+$\[
 W_t=(V_t,E_t,S_t)
-\]
+\]$
 
-where \(V_t\) are entities, \(E_t\) relationships, and \(S_t\) state.
+where $\(V_t\)$ are entities, $\(E_t\)$ relationships, and $\(S_t\)$ state.
 
 ### Context
 
 Represents what is relevant now:
 
-\[
+$\[
 C_t=f(W_t,M_t,G_t,H_t)
-\]
+\]$
 
 where the state is conditioned on world, memory, current goals and history.
 
 ### Memory
 
 Long-lived structured state rather than raw conversation transcripts.
-
 Initial classes:
-
-\[
+$\[
 M=\{M_E,M_S,M_P\}
-\]
-
+\]$
 with episodic, semantic and procedural memory.
 
 ### Intent
@@ -438,26 +414,22 @@ The learned policy should never be allowed to bypass deterministic safety or per
 
 A learned component may propose:
 
-\[
+$\[
 \hat a=\pi_\theta(s_t)
-\]
-
+\]$
 but the final action is:
-
-\[
+$\[
 a_t = G(\hat a, P_t, R_t)
-\]
+\]$
 
-where \(P_t\) represents permissions and \(R_t\) risk constraints.
+where $\(P_t\)$ represents permissions and $\(R_t\)$ risk constraints.
 
 ---
 
 # 8. Personalization and RL
 
 The goal is not generic reinforcement learning for its own sake.
-
 The goal is **personalized interaction policy learning**.
-
 The training sample should eventually resemble:
 
 ```text
@@ -482,9 +454,9 @@ reward
 
 A trajectory is:
 
-\[
+$\[
 \tau=(s_0,a_0,r_0,s_1,\ldots,s_T).
-\]
+\]$
 
 The reward should not simply be “user clicked something.”
 
